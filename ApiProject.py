@@ -1,9 +1,9 @@
 import requests
-import random
+from random import randint
 
 url = ("https://icanhazdadjoke.com/search")   # Adding search at the end so I can add parameters
 
-userInput = input("What kind of joke do you want? ")
+userInput = input("What joke do you want to search for? ")
 
 # Searches for whatever user inputted
 response = requests.get(url, headers={"Accept": "application/json"}, params={"term": (userInput)})
@@ -17,7 +17,7 @@ if joke == []:
     print("Try again!")
 else:
     # Added functionality to choose a random joke and not just the same one each time
-    index = random.randint(0, (len(joke)-1))
+    index = randint(0, (len(joke)-1))
 
     joke = joke[index]  # This returns the first joke as a dictionary along with its key
 
