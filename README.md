@@ -1,1 +1,1 @@
-# API-Project
+Takes input from the user and displays relevant jokes using an API and the python module requests.

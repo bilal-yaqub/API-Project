@@ -1,4 +1,5 @@
 import requests
+import random
 
 url = ("https://icanhazdadjoke.com/search")   # Adding search at the end so I can add parameters
 
@@ -15,9 +16,12 @@ joke = data["results"]      # ["results] returns all jokes as a list
 if joke == []:
     print("Try again!")
 else:
-    joke = joke[0]  # This returns the first joke as a dictionary along with its key
+    # Added functionality to choose a random joke and not just the same one each time
+    index = random.randint(0, (len(joke)-1))
 
-    joke = list(joke.values())  # This returns a list with the joke at index [1]
+    joke = joke[index]  # This returns the first joke as a dictionary along with its key
+
+    joke = list(joke.values())  # This returns a list where the joke is at index [1]
 
     joke = joke[1]
     print(joke)
